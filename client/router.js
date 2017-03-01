@@ -2,7 +2,8 @@ var app = require('ampersand-app')
 var Router = require('ampersand-router')
 var qs = require('qs')
 
-var HomePage = require('components/home-page')
+// Controllers
+var HomeController = require('controllers/home')
 var MyProfilePage = require('components/my-profile-page')
 var PrivacyPolicyPage = require('components/privacy-policy-page')
 var TermsAndConditionsPage = require('components/terms-and-conditions-page')
@@ -23,21 +24,7 @@ module.exports = Router.extend({
     'termsandconditions': 'termsandconditions',
     '(*path)': 'catchAll'
   },
-  home: function () {
-    var args = arguments
-    var action = args[0]
-
-    if (action === 'login') {
-      NavbarActions.startLogin()
-    }
-
-    if (action === 'resetpassword') {
-      NavbarActions.resetPassword()
-    }
-
-    app.trigger('page.switch', new HomePage())
-    document.body.scrollTop = document.documentElement.scrollTop = 0
-  },
+  home: HomeController,
   myprofile: function () {
     app.trigger('page.switch', new MyProfilePage())
     document.body.scrollTop = document.documentElement.scrollTop = 0
