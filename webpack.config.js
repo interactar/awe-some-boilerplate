@@ -40,7 +40,7 @@ module.exports = {
     }),
     new ExtractTextPlugin('css/[name]-[local]-[hash:6].css'),
     new HtmlWebpackPlugin({
-      template: 'client/index.tpl.html',
+      template: 'templates/index.html',
       inject: 'body',
       filename: 'index.html'
     }),
