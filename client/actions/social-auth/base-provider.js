@@ -6,7 +6,7 @@ module.exports = {
   },
   loginSuccess: function (response) {
     var session = response.session
-    app.store.session.create(session)
+    app.state.session.create(session)
     if (response.onboarding === true) {
       app.navigate('/welcome')
     } else {

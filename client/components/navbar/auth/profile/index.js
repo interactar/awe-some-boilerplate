@@ -4,7 +4,7 @@ var templateHbs = require('./template.hbs')
 
 module.exports = View.extend({
   initialize: function () {
-    this.model = app.store.session.profile
+    this.model = app.state.session.profile
   },
   template: templateHbs,
   bindings: {

@@ -8,7 +8,6 @@ var app = require('ampersand-app')
 var config = require('clientconfig')
 // var domReady = require('domready')
 var Router = require('./router')
-var Store = require('./store')
 var State = require('./state')
 var LayoutView = require('components/layout')
 var Alerts = require('components/alerts')
@@ -21,11 +20,9 @@ window.app = app
 app.extend({
   alerts: new Alerts(),
   state: new State(),
-  store: new Store(),
   router: new Router(),
   init: function () {
     // Create and attach our layout view
-    this.store.initialize(this.state)
     this.layoutView = new LayoutView({el: document.getElementById('root')})
 
     // if login
@@ -40,7 +37,7 @@ app.extend({
   },
   initializeRouter: function () {
     console.log('init router')
-    app.session = app.store.session
+    app.session = app.state.session
     app.router.history.start({ pushState: true })
   },
   navigate: function (page) {

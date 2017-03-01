@@ -15,7 +15,7 @@ module.exports = View.extend({
     'click [data-hook=password-reset]': 'onClickPasswordReset'
   },
   initialize: function () {
-    this.model = app.store.navbar
+    this.model = app.state.navbar
   },
   render: function () {
     this.renderWithTemplate(this)

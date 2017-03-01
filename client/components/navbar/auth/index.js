@@ -22,7 +22,7 @@ var AuthenticationButtons = View.extend({
 
 module.exports = View.extend({
   initialize: function () {
-    this.model = app.store.session
+    this.model = app.state.session
   },
   template: '<ul class="nav navbar-nav navbar-right" data-hook="container"> </ul>',
   render: function () {

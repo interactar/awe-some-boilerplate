@@ -10,7 +10,7 @@ var store = {
 }
 
 function fetch () {
-  store.profile = app.store.session.profile
+  store.profile = app.state.session.profile
 }
 
 var State = function () {

@@ -8,7 +8,7 @@ var FormButtonsView = require('components/formbuttons')
 
 module.exports = View.extend({
   initialize: function () {
-    this.alertMsg = app.store.navbar.signInAlert
+    this.alertMsg = app.state.navbar.signInAlert
   },
   template: require('./template.hbs'),
   events: {

@@ -11,7 +11,7 @@ var debug = require('debug')('component:navbar:registration')
 
 module.exports = View.extend({
   initialize: function () {
-    this.model = app.store.registration
+    this.model = app.state.registration
   },
   template: template_hbs,
   events: {
@@ -56,7 +56,7 @@ module.exports = View.extend({
     this.listenTo(form, 'change:show', function (state) {
       if (!state.show) modal.hide()
     })
-    this.listenTo(app.store.navbar, 'change:signingUp', function (state) {
+    this.listenTo(app.state.navbar, 'change:signingUp', function (state) {
       modal.show()
     })
   },

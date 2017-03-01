@@ -33,7 +33,7 @@ module.exports = {
       '?access_token=' + token
     ].join('')
 
-    app.store.session.destroy(function () {
+    app.state.session.destroy(function () {
       var done = function () {
         window.location.href = '/'
       }

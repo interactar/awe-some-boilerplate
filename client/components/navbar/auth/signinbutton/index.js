@@ -11,7 +11,7 @@ var debug = require('debug')('navbar:auth:signin')
 
 module.exports = View.extend({
   initialize: function () {
-    this.model = app.store.navbar
+    this.model = app.state.navbar
   },
   template: template_hbs,
   events: {

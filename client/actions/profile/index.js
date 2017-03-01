@@ -8,7 +8,7 @@ module.exports = {
     var profile = app.state.myprofile.get().profile
     // var profiletopics = app.state.myprofile.get().profiletopics;
 
-    // var session = app.store.session;
+    // var session = app.state.session;
     profile.set(data)
 
     if (data.language) {

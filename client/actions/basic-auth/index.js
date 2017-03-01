@@ -9,7 +9,7 @@ function registrationConfirmSuccess (response) {
   //
   // NOTE: this should be a HANDLER/REDUCER in the STORE triggered by an ACTION
   //
-  // var alertMsg = app.store.navbar.signInAlert;
+  // var alertMsg = app.state.navbar.signInAlert;
   // alertMsg.set('enabled' , true);
   // alertMsg.set('message' , );
   // alertMsg.set('type'    , );
@@ -48,7 +48,7 @@ module.exports = {
           where: { user_id: user_id }
         }, {
           success: function () {
-            app.store.session.create({
+            app.state.session.create({
               'access_token': response.id,
               'user_id': user_id,
               'profile_id': profile.id
@@ -76,7 +76,7 @@ module.exports = {
     var terms = options.terms
 
     app.startLoading()
-    app.store.registration.start()
+    app.state.registration.start()
 
     client.register({
       'username': email,
@@ -86,12 +86,12 @@ module.exports = {
       'terms': terms,
       'success': function (data, xhr) {
         app.finishLoading()
-        app.store.registration.finish()
+        app.state.registration.finish()
         app.navigate('/registration/success')
       },
       'error': function (error, xhr) {
         app.finishLoading()
-        app.store.registration.failed()
+        app.state.registration.failed()
         app.alerts.handleServerError(xhr)
       }
     })
