@@ -9,10 +9,8 @@ var config = require('clientconfig')
 // var domReady = require('domready')
 var Router = require('./router')
 var State = require('./state')
-var LayoutView = require('components/layout')
+var LayoutView = require('views/layout')
 var Alerts = require('components/alerts')
-
-window.__LOAD_FB_SDK = config.fb
 
 window.app = app
 
@@ -23,7 +21,7 @@ app.extend({
   router: new Router(),
   init: function () {
     // Create and attach our layout view
-    this.layoutView = new LayoutView({el: document.getElementById('root')})
+    this.layoutView = new LayoutView({ el: document.getElementById('root') })
 
     // if login
     if (/login/.test(window.location.pathname) === true) {

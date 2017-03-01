@@ -9,8 +9,8 @@ var localLinks = require('local-links')
 
 var bodyHbs = require('./templates/body.hbs')
 var headHbs = require('./templates/head.hbs')
-var NavbarView = require('../navbar')
-const Footer = require('../footer')
+var NavbarView = require('components/navbar')
+var Footer = require('./footer')
 
 module.exports = View.extend({
   template: bodyHbs,
