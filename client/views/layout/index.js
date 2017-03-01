@@ -7,30 +7,21 @@ var _ = require('lodash')
 var domify = require('domify')
 var localLinks = require('local-links')
 
-var bodyHbs = require('./templates/body.hbs')
-var headHbs = require('./templates/head.hbs')
+var bodyHbs = require('./body.hbs')
+var headHbs = require('./head.hbs')
 var NavbarView = require('components/navbar')
-var Footer = require('./footer')
+var footerHbs = require('./footer.hbs')
 
 module.exports = View.extend({
   template: bodyHbs,
   autoRender: true,
   initialize: function () {
-    // window.aaa = this;
-    this.title = 'SPA Boilerplate'
+    this.title = 'Hacienda'
+
     // this marks the correct nav item selected
     this.listenTo(app, 'page.switch', this.onSwitchPage)
   },
-  events: {
-    'click a[href]': 'onClickLink',
-    'click a.social-link.twitter-link': 'onClickTwitterLink',
-    'click a.social-link.facebook-link': 'onClickFacebookLink'
-  },
   subviews: {
-    footer: {
-      selector: 'footer',
-      constructor: Footer
-    },
     navbar: {
       selector: '[data-hook=navbar-container]',
       constructor: NavbarView
@@ -39,6 +30,8 @@ module.exports = View.extend({
   render: function () {
     // some additional stuff we want to add to the document head
     document.head.appendChild(domify(headHbs(this)))
+    //document.body.className = 'big-menu';
+    document.body.appendChild(domify(footerHbs(this)))
 
     // main renderer
     this.renderWithTemplate(this)
