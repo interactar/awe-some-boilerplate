@@ -9,7 +9,7 @@ var config = require('clientconfig')
 // var domReady = require('domready')
 var Router = require('./router')
 var State = require('./state')
-var LayoutView = require('views/layout')
+var MainView = require('views/main')
 var Alerts = require('components/alerts')
 
 window.app = app
@@ -20,8 +20,10 @@ app.extend({
   state: new State(),
   router: new Router(),
   init: function () {
-    // Create and attach our layout view
-    this.layoutView = new LayoutView({ el: document.getElementById('root') })
+    // Create and attach our main view
+    new MainView({
+      el: document.getElementById('root')
+    })
 
     // if login
     if (/login/.test(window.location.pathname) === true) {
